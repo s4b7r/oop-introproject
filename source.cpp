@@ -7,22 +7,23 @@
 class Person
 {
 public:
+    void fill_me();
+    void print_me();
     int get_geb();
 
 protected:
+    char name[40];
     int geb_jahr;
 };
 
 class Mitarbeiter: public Person
 {
 public:
-
     void fill_me();
     void print_me();
     void set_geb(int input);
 
 private:
-    char name[40];
     int einst_jahr;
 };
 
@@ -34,7 +35,6 @@ public:
     void set_geb(int input);
 
 private:
-    char name[40];
     int matnr;
     int imatjahr;
     char sgang[20];
@@ -72,8 +72,7 @@ void Student::fill_me()
 {
     int input;
 
-    printf("Name: ");
-    scanf("%s", this->name);
+    Person::fill_me();
     printf("Mat Nr: ");
     scanf("%d", &this->matnr);
     printf("Imat-> Jahr: ");
@@ -87,7 +86,7 @@ void Student::fill_me()
 
 void Student::print_me()
 {
-    printf("Name: %s\n", this->name);
+    Person::print_me();
     printf("Mat Nr: %d\n", this->matnr);
     printf("Imat. Jahr: %d\n", this->imatjahr);
     printf("Studiengang: %s\n", this->sgang);
@@ -108,8 +107,7 @@ void Mitarbeiter::fill_me()
 {
     int input;
 
-    printf("Name: ");
-    scanf("%s", this->name);
+    Person::fill_me();
     printf("Einst-> Jahr: ");
     scanf("%d", &this->einst_jahr);
     printf("Geb. Jahr: ");
@@ -119,7 +117,7 @@ void Mitarbeiter::fill_me()
 
 void Mitarbeiter::print_me()
 {
-    printf("Name: %s\n", this->name);
+    Person::print_me();
     printf("Einst. Jahr: %d\n", this->einst_jahr);
     printf("Geb. Jahr: %d\n", this->get_geb());
 }
@@ -127,4 +125,15 @@ void Mitarbeiter::print_me()
 int Person::get_geb()
 {
     return this->geb_jahr;
+}
+
+void Person::fill_me()
+{
+    printf("Name: ");
+    scanf("%s", this->name);
+}
+
+void Person::print_me()
+{
+    printf("Name %s\n", this->name);
 }
