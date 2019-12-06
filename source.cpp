@@ -9,9 +9,12 @@ class Mitarbeiter
 public:
     char name[40];
     int einst_jahr;
-    int geb_jahr;
 
     void set_geb(int input);
+    int get_geb();
+
+private:
+    int geb_jahr;
 };
 
 class Student
@@ -21,9 +24,12 @@ public:
     int matnr;
     int imatjahr;
     char sgang[20];
-    int geb_jahr;
 
     void set_geb(int input);
+    int get_geb();
+
+private:
+    int geb_jahr;
 };
 
 int main(int argc, char ** argv)
@@ -51,7 +57,7 @@ int main(int argc, char ** argv)
     printf("Mat Nr: %d\n", student.matnr);
     printf("Imat. Jahr: %d\n", student.imatjahr);
     printf("Studiengang: %s\n", student.sgang);
-    printf("Geb. Jahr: %d\n", student.geb_jahr);
+    printf("Geb. Jahr: %d\n", student.get_geb());
 
     printf("\n\n");
 
@@ -67,7 +73,7 @@ int main(int argc, char ** argv)
 
     printf("Name: %s\n", mitarbeiter.name);
     printf("Einst. Jahr: %d\n", mitarbeiter.einst_jahr);
-    printf("Geb. Jahr: %d\n", mitarbeiter.geb_jahr);
+    printf("Geb. Jahr: %d\n", mitarbeiter.get_geb());
 
     system("pause");
 
@@ -84,6 +90,11 @@ void Student::set_geb(int input)
     }
 }
 
+int Student::get_geb()
+{
+    return this->geb_jahr;
+}
+
 void Mitarbeiter::set_geb(int input)
 {
     this->geb_jahr = input;
@@ -92,4 +103,9 @@ void Mitarbeiter::set_geb(int input)
         system("pause");
         exit(-1);
     }
+}
+
+int Mitarbeiter::get_geb()
+{
+    return this->geb_jahr;
 }
