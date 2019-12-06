@@ -8,7 +8,7 @@ struct student
 {
     char name[40];
     int matnr;
-    int imatjahr; // Jahr der Immatrikulation
+    int imatjahr;
     char sgang[20];
 };
 
