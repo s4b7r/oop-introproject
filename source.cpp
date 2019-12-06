@@ -16,21 +16,28 @@ protected:
 class Mitarbeiter: public Person
 {
 public:
+
+    void fill_me();
+    void print_me();
+    void set_geb(int input);
+
+private:
     char name[40];
     int einst_jahr;
-
-    void set_geb(int input);
 };
 
 class Student: public Person
 {
 public:
+    void fill_me();
+    void print_me();
+    void set_geb(int input);
+
+private:
     char name[40];
     int matnr;
     int imatjahr;
     char sgang[20];
-
-    void set_geb(int input);
 };
 
 int main(int argc, char ** argv)
@@ -38,43 +45,13 @@ int main(int argc, char ** argv)
     Student student;
     Mitarbeiter mitarbeiter;
 
-    int input;
-
-    printf("Name: ");
-    scanf("%s", student.name);
-    printf("Mat Nr: ");
-    scanf("%d", &student.matnr);
-    printf("Imat. Jahr: ");
-    scanf("%d", &student.imatjahr);
-    printf("Studiengang: ");
-    scanf("%s", &student.sgang);
-    printf("Geb. Jahr: ");
-    scanf("%d", &input);
-    student.set_geb(input);
-
+    student.fill_me();
     printf("\n\n");
-
-    printf("Name: %s\n", student.name);
-    printf("Mat Nr: %d\n", student.matnr);
-    printf("Imat. Jahr: %d\n", student.imatjahr);
-    printf("Studiengang: %s\n", student.sgang);
-    printf("Geb. Jahr: %d\n", student.get_geb());
-
+    student.print_me();
     printf("\n\n");
-
-    printf("Name: ");
-    scanf("%s", mitarbeiter.name);
-    printf("Einst. Jahr: ");
-    scanf("%d", &mitarbeiter.einst_jahr);
-    printf("Geb. Jahr: ");
-    scanf("%d", &input);
-    mitarbeiter.set_geb(input);
-
+    mitarbeiter.fill_me();
     printf("\n\n");
-
-    printf("Name: %s\n", mitarbeiter.name);
-    printf("Einst. Jahr: %d\n", mitarbeiter.einst_jahr);
-    printf("Geb. Jahr: %d\n", mitarbeiter.get_geb());
+    mitarbeiter.print_me();
 
     system("pause");
 
@@ -91,6 +68,32 @@ void Student::set_geb(int input)
     }
 }
 
+void Student::fill_me()
+{
+    int input;
+
+    printf("Name: ");
+    scanf("%s", this->name);
+    printf("Mat Nr: ");
+    scanf("%d", &this->matnr);
+    printf("Imat-> Jahr: ");
+    scanf("%d", &this->imatjahr);
+    printf("Studiengang: ");
+    scanf("%s", &this->sgang);
+    printf("Geb. Jahr: ");
+    scanf("%d", &input);
+    this->set_geb(input);
+}
+
+void Student::print_me()
+{
+    printf("Name: %s\n", this->name);
+    printf("Mat Nr: %d\n", this->matnr);
+    printf("Imat. Jahr: %d\n", this->imatjahr);
+    printf("Studiengang: %s\n", this->sgang);
+    printf("Geb. Jahr: %d\n", this->get_geb());
+}
+
 void Mitarbeiter::set_geb(int input)
 {
     this->geb_jahr = input;
@@ -99,6 +102,26 @@ void Mitarbeiter::set_geb(int input)
         system("pause");
         exit(-1);
     }
+}
+
+void Mitarbeiter::fill_me()
+{
+    int input;
+
+    printf("Name: ");
+    scanf("%s", this->name);
+    printf("Einst-> Jahr: ");
+    scanf("%d", &this->einst_jahr);
+    printf("Geb. Jahr: ");
+    scanf("%d", &input);
+    this->set_geb(input);
+}
+
+void Mitarbeiter::print_me()
+{
+    printf("Name: %s\n", this->name);
+    printf("Einst. Jahr: %d\n", this->einst_jahr);
+    printf("Geb. Jahr: %d\n", this->get_geb());
 }
 
 int Person::get_geb()
