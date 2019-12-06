@@ -4,20 +4,25 @@
 #include <stdlib.h>
 #include <string.h>
 
-class Mitarbeiter
+class Person
+{
+public:
+    int get_geb();
+
+protected:
+    int geb_jahr;
+};
+
+class Mitarbeiter: public Person
 {
 public:
     char name[40];
     int einst_jahr;
 
     void set_geb(int input);
-    int get_geb();
-
-private:
-    int geb_jahr;
 };
 
-class Student
+class Student: public Person
 {
 public:
     char name[40];
@@ -26,10 +31,6 @@ public:
     char sgang[20];
 
     void set_geb(int input);
-    int get_geb();
-
-private:
-    int geb_jahr;
 };
 
 int main(int argc, char ** argv)
@@ -90,11 +91,6 @@ void Student::set_geb(int input)
     }
 }
 
-int Student::get_geb()
-{
-    return this->geb_jahr;
-}
-
 void Mitarbeiter::set_geb(int input)
 {
     this->geb_jahr = input;
@@ -105,7 +101,7 @@ void Mitarbeiter::set_geb(int input)
     }
 }
 
-int Mitarbeiter::get_geb()
+int Person::get_geb()
 {
     return this->geb_jahr;
 }
