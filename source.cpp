@@ -36,6 +36,11 @@ int main(int argc, char ** argv)
     scanf("%s", &student.sgang);
     printf("Geb. Jahr: ");
     scanf("%d", &student.geb_jahr);
+    if (student.geb_jahr > student.imatjahr) {
+        printf("Das macht keinen Sinn!\n");
+        system("pause");
+        return -1;
+    }
 
     printf("\n\n");
 
@@ -53,6 +58,11 @@ int main(int argc, char ** argv)
     scanf("%d", &mitarbeiter.einst_jahr);
     printf("Geb. Jahr: ");
     scanf("%d", &mitarbeiter.geb_jahr);
+    if (mitarbeiter.geb_jahr > mitarbeiter.einst_jahr) {
+        printf("Das macht keinen Sinn!\n");
+        system("pause");
+        return -1;
+    }
 
     printf("\n\n");
 
