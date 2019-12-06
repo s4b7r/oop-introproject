@@ -4,6 +4,15 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+// Jetzt auch Mitarbeiter:
+struct mitarbeiter
+{
+    char name[40];
+    int einst_jahr; // Jahr der Einstellung
+    int geb_jahr; // Geburtsjahr
+};
+
 struct student
 {
     char name[40];
@@ -15,6 +24,7 @@ struct student
 int main(int argc, char ** argv)
 {
     struct student student;
+    struct mitarbeiter mitarbeiter;
 
     printf("Name: ");
     scanf("%s", student.name);
@@ -31,6 +41,21 @@ int main(int argc, char ** argv)
     printf("Mat Nr: %d\n", student.matnr);
     printf("Imat. Jahr: %d\n", student.imatjahr);
     printf("Studiengang: %s\n", student.sgang);
+
+    printf("\n\n");
+
+    printf("Name: ");
+    scanf("%s", mitarbeiter.name);
+    printf("Einst. Jahr: ");
+    scanf("%d", &mitarbeiter.einst_jahr);
+    printf("Geb. Jahr: ");
+    scanf("%d", &mitarbeiter.geb_jahr);
+
+    printf("\n\n");
+
+    printf("Name: %s\n", mitarbeiter.name);
+    printf("Einst. Jahr: %d\n", mitarbeiter.einst_jahr);
+    printf("Geb. Jahr: %d\n", mitarbeiter.geb_jahr);
 
     system("pause");
 
