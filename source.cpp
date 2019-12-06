@@ -5,12 +5,11 @@
 #include <string.h>
 
 
-// Jetzt auch Mitarbeiter:
 struct mitarbeiter
 {
     char name[40];
-    int einst_jahr; // Jahr der Einstellung
-    int geb_jahr; // Geburtsjahr
+    int einst_jahr;
+    int geb_jahr;
 };
 
 struct student
